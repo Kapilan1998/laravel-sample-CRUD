@@ -36,6 +36,17 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'fname'=>'required | max: 25 |regex:/^[a-zA-Z]+$/|',
+            'lname'=>'required | max: 25 |regex:/^[a-zA-Z]+$/|',
+            'address'=>'required | max:100',
+            'gender'=>'required',
+            'email'=>'required | email',
+            'mobile'=>'required | size:10',
+            'dob'=>'required',
+            'salary'=>'required | max:10',
+        ]);
+
         $fname = $request ->input('fname');
         $lname = $request ->input('lname');
         $address = $request ->input('address');
@@ -92,6 +103,17 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'fname'=>'required | max: 25 |regex:/^[a-zA-Z]+$/|',
+            'lname'=>'required | max: 25 |regex:/^[a-zA-Z]+$/|',
+            'address'=>'required | max:100',
+            'gender'=>'required',
+            'email'=>'required | email',
+            'mobile'=>'required | size:10',
+            'dob'=>'required',
+            'salary'=>'required | max:10',
+        ]);
+
         $fname = $request ->input('fname');
         $lname = $request ->input('lname');
         $address = $request ->input('address');
